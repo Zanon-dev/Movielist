@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Movie list</title>
+
+	<style type="text/css">
+
+		*{
+			margin: 0;
+			padding: 0;
+			border: 0;
+		}
+
+		header{
+
+			background-color: #1E1E1E;
+			width: 100%;
+			height: 240px;
+			-webkit-filter: drop-shadow(5px 5px 5px #222);
+			filter: drop-shadow(5px 5px 5px #222);
+		}
+
+		.logo{
+			width: 15rem;
+			height: 15rem;
+			text-align: center;
+
+		}
+
+		figure{
+			text-align: center;
+		}
+
+		body{
+			background-color: #282828;
+		}
+
+		h1{
+			text-align: center;
+			color: #fff;
+			font-family: montserrat;
+			font-size: 3rem;
+			padding: 60px
+		}
+
+		p{
+		color: #fff;
+		font-family: montserrat;
+		margin-left: 10px;
+		text-align: left;
+		text-align: center;
+		font-size: 1.2rem;
+	}
+	#lista{
+
+		padding: 4rem;
+	}
+
+	.nome-lista{
+		font-family: montserrat;
+		font-size: 10px;
+	}
+
+	.list-completa{
+		padding: 3rem;
+		margin-left: 10px;
+		font-family: montserrat;
+		border-radius: 100px;
+		text-align: center;
+	}
+
+	#btn-add{
+		background-color: green;
+		padding: 10px;
+		border-radius: 5px;
+		margin: 50px;
+		font-family: montserrat;
+		color: #fff;
+		font-weight: bold;
+
+	}
+
+
+	#btn-remove{
+		background-color: red;
+		padding: 10px;
+		border-radius: 5px;
+		margin: 50px;
+		font-family: montserrat;
+		text-align: center;
+		color: #fff;
+		font-weight: bold;
+	}
+
+	.lista-completa{
+		text-align: center;
+		padding: 3rem;
+		margin-left: 10px;
+		font-family: montserrat;
+		border-radius: 100px;
+		text-align: center;
+		list-style-type: none;	
+	}
+
+	#text_movie{
+		width: 250px;
+		height: 30px;
+		background-color: #303841;
+		border: 2px solid #fff;
+		outline-color: #fff;
+		color: #fff;
+		font-family: montserrat;
+		font-size: 1.2rem;
+		border-radius: 10px;
+		text-align:center;
+	}
+
+	.btn{
+		text-align: center;
+	}
+
+</style>
+</head>
+<body>
+
+	<header>
+		<figure>
+			<img class="logo" src="img/icone.png">
+		</figure>
+
+	</header>
+		<div id="content_text">
+			
+			<h1>My lists</h1>
+
+		<ol class="lista-completa">
+			<li class="list">
+				<input id="text_movie" type="text" placeholder="Type movie" name="list_name">
+			</li>
+		</ol>
+		</div>
+
+		<br><br>
+
+		<div class="btn">
+			<button id="btn-add" type="submit" value="ENVIAR">ADD MOVIE</button>&nbsp
+			<button id="btn-remove" type="reset" value="LIMPAR">CLEAN</button>
+			
+		</div>
+
+	<script type="text/javascript">
+		document.getElementById('btn-add').addEventListener("click", adicionaFilme)
+			function adicionaFilme() {
+				
+				const inputvalue = document.getElementById('text_movie').value;
+				
+				console.log(inputvalue);
+				
+				const p = document.createElement("p");
+				
+				p.textContent = inputvalue;
+				
+				const id = document.getElementById('content_text')
+				id.appendChild(p);
+			}
+		
+		document.getElementById('btn-remove').addEventListener("click", removeResults);
+
+        function removeResults() {
+            const contentText = document.getElementById('content_text');
+            
+           
+            const paragraphs = contentText.querySelectorAll("p");
+            paragraphs.forEach(paragraph => paragraph.remove());
+
+            console.log("Resultados limpos.");
+        }
+
+	</script>
+</body>
+</html>
+
